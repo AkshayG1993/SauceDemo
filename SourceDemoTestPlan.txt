@@ -1,0 +1,74 @@
+# Test Plan: SourceDemo Automation Suite
+
+## 1\. Objective
+
+Ensure robust validation of all user flows and features described in the feature files, with full automation coverage.
+
+## 2\. Scope
+
+- Functional testing of all scenarios in `src/test/resources/features`
+- Automation using Java, Cucumber, Selenium WebDriver, TestNG
+
+## 3\. Test Approach
+
+- **Framework:** Cucumber + Selenium WebDriver + TestNG
+- **Execution:** Automated via Maven
+- **Browsers:** Google Chrome (via ChromeDriver)
+
+## 4\. Test Scenarios & Cases
+
+All scenarios from every `.feature` file in `src/test/resources/features` are covered, including but not limited to:
+
+| Scenario Type           | Description                                               | Automated |
+|-------------------------|----------------------------------------------------------|:---------:|
+| Valid Login             | User logs in with correct credentials                    | Yes       |
+| Invalid Login           | User attempts login with incorrect credentials           | Yes       |
+| Empty Credentials       | User submits login form with empty fields                | Yes       |
+| Password Recovery       | User initiates password recovery                         | Yes       |
+| Logout Functionality    | User logs out from the application                       | Yes       |
+| Edge/Bug Scenarios      | System fails to show error or allows invalid login       | Yes       |
+| Additional Flows        | Any other flows present in feature files                 | Yes       |
+
+## 5\. Test Data
+
+- Valid/invalid username and password combinations
+- Empty fields
+- Password recovery email addresses
+
+## 6\. Environment
+
+- **OS:** macOS
+- **Browser:** Chrome (latest)
+- **Tools:** Java, Maven, Selenium, Cucumber, TestNG
+
+## 7\. Execution
+
+- All scenarios are executed via:
+  ```
+  mvn clean test
+  ```
+- Tag-based execution for specific scenarios:
+  ```
+  mvn clean test -Dcucumber.filter.tags="@tag"
+  ```
+
+## 8\. Entry & Exit Criteria
+
+- **Entry:** Framework setup, all feature files and step definitions implemented
+- **Exit:** All automated tests pass; defects logged for failed scenarios
+
+## 9\. Reporting
+
+- HTML reports generated at `target/cucumber-reports.html`
+- Bug scenarios documented in test results
+
+## 10\. References
+
+- Feature files: `src/test/resources/features/`
+- Step definitions: `src/test/java/com/sourcedemo/automation/StepDefinitions/`
+- Hooks: `src/test/java/com/sourcedemo/automation/Hooks/`
+- Test runner: `src/test/java/com/sourcedemo/automation/LoginFeatureTest.java`
+
+---
+
+This plan ensures all scenarios in your feature files are fully automated and validated.
